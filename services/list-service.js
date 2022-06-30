@@ -8,3 +8,16 @@ export async function getAllItems() {
 
     return response.data;
 }
+
+export async function addItem(item, quantity) {
+    const response = await client
+        .from('list')
+        .insert({
+            item,
+            quantity,
+            bought: false
+        })
+        .single();
+
+    return response.data;
+}

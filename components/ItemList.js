@@ -12,16 +12,23 @@ export default function createItemList(root) {
 }
 
 function Item({ item }) {
-    const div = document.createElement('div');
-    div.classList.add('item');
 
-    const ingredient = document.createElement('h3');
+    const li = document.createElement('li');
+    li.classList.add('single-item');
+
+    // button.addEventListener('click', () => {
+    //     handleCompleteItem(item);
+    // });
+
+    const ingredient = document.createElement('p');
+    ingredient.classList.add('ingredient');
     ingredient.textContent = item.item;
 
     const quantity = document.createElement('p');
+    quantity.classList.add('quantity');
     quantity.textContent = item.quantity;
 
-    div.append(ingredient, quantity);
+    li.append(ingredient, quantity);
 
-    return div;
+    return li;
 }

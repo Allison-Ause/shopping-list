@@ -26,17 +26,19 @@
     <main>
         <div id="form-container">
             <form id="list-form">
-                <label>Needed Ingredient:
+                <label>Spell Component:
                     <input required name="item">
                 </label>
                 <label>Quantity:
-                    <input name="quantity">
+                    <input name="quantity" type="number">
                 </label>
+                <button id="add-button">Add to List</button>
             </form>
         </div>
 
         <div id="list-container">
             <ul id="shopping-list"></ul>
+            <!-- id of singles in list = button="single-item", "ingredient", "quantity" -->
         </div>
     </main>
 

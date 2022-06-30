@@ -1,16 +1,18 @@
-// export default function createAddItemForm(form, { handleAddItem }) {
 
-//     form.addEventListener('submit', (e) => {
-//         e.preventDefault();
+export default function createAddItemForm(form, { handleAddItem }) {
 
-//         const formData = new FormData(form);
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-//         handleAddItem(
-//             formData.get('item'),
-//             formData.get('quantity')
-//         );
-//     });
-//     return () => {
+        const formData = new FormData(form);
 
-//     };
-// }
+        handleAddItem(
+            formData.get('item'),
+            formData.get('quantity')
+        );
+    });
+    return () => {
+
+    };
+}
+
