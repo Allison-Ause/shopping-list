@@ -9,7 +9,9 @@ export default function createAddItemForm(form, { handleAddItem }) {
         handleAddItem(
             formData.get('item'),
             formData.get('quantity')
+            || null
         );
+        form.reset();
     });
     return () => {
 

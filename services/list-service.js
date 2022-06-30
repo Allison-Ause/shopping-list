@@ -21,3 +21,13 @@ export async function addItem(item, quantity) {
 
     return response.data;
 }
+
+export async function updateItem(item) {
+    const response = await client
+        .from('list')
+        .update(item)
+        .match({ id: item.id })
+        .single();
+
+    return response;
+}
