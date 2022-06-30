@@ -19,16 +19,27 @@
 
 <body>
     <header>
-        <img src="./assets/html_css_js.png">
-        <h1>Cool Web App</h1>
+        <h1>Spells Shopping List</h1>
         <div id="user"></div>
     </header>
 
     <main>
+        <div id="form-container">
+            <form id="list-form">
+                <label>Needed Ingredient:
+                    <input required name="item">
+                </label>
+                <label>Quantity:
+                    <input name="quantity">
+                </label>
+            </form>
+        </div>
 
+        <div id="list-container">
+            <ul id="shopping-list"></ul>
+        </div>
     </main>
 
-    <footer>&copy;2022 Aspiring Software Developer</footer>
 
     <script type="module" src="app.js"></script>
 </body>
