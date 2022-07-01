@@ -17,7 +17,6 @@ async function handlePageLoad() {
     protectPage(user);
 
     itemList = await getAllItems();
-
     display();
 }
 
@@ -28,21 +27,19 @@ async function handleSignOut() {
 async function handleAddItem(item, quantity) {
 
     const newItem = await addItem(item, quantity);
-
     itemList.push(newItem);
-
     display();
 }
 
 async function handleBuyItem(item) {
-    console.log('Would update', item);
+
     item.bought = !item.bought;
     await updateItem(item);
     display();
 }
 
 async function handleDeleteAllItems() {
-    console.log('firing handler');
+
     await deleteAllItems(itemList);
     itemList = [];
     display();
