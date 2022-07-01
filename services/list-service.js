@@ -1,4 +1,5 @@
 import { client } from './client.js';
+import { getUser } from './auth-service.js';
 
 export async function getAllItems() {
     const response = await client
@@ -28,6 +29,15 @@ export async function updateItem(item) {
         .update(item)
         .match({ id: item.id })
         .single();
+
+    return response;
+}
+
+export async function deleteAllItems() {
+    const response = await client
+        .from('list')
+        .delete()
+        .match({ user_id: getUser().id });
 
     return response;
 }

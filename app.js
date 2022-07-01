@@ -1,11 +1,11 @@
 import { getUser, signOut } from './services/auth-service.js';
 import { protectPage } from './utils.js';
-import { getAllItems, addItem, updateItem } from './services/list-service.js';
-
+import { getAllItems, addItem, updateItem, deleteAllItems } from './services/list-service.js';
 
 import createUser from './components/User.js';
 import createItemList from './components/ItemList.js';
 import createAddItemForm from './components/ListForm.js';
+import createDeleteList from './components/DeleteList.js';
 
 // State
 let user = null;
@@ -41,6 +41,13 @@ async function handleBuyItem(item) {
     display();
 }
 
+async function handleDeleteAllItems() {
+    console.log('firing handler');
+    await deleteAllItems(itemList);
+    itemList = [];
+    display();
+}
+
 // Components 
 const User = createUser(
     document.querySelector('#user'),
@@ -48,12 +55,14 @@ const User = createUser(
 );
 
 const ItemList = createItemList(document.querySelector('#shopping-list'), { handleBuyItem });
-const AddItemForm = createAddItemForm(document.querySelector('#list-form'), { handleAddItem });
+const AddItemForm = createAddItemForm(document.querySelector('#list-form'), { handleAddItem, handleDeleteAllItems });
+const DeleteList = createDeleteList(document.querySelector('#delete-button'), { handleDeleteAllItems });
 
 function display() {
     User({ user });
     ItemList({ itemList });
     AddItemForm();
+    DeleteList();
 }
 
 handlePageLoad();
